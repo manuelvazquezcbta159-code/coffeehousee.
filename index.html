@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coffee House</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #f5efe6, #e8d8c3);
+}
+
+/* NAV */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background: #e6d3c3;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: #5a3e36;
+    font-weight: bold;
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    align-items: center;
+}
+
+.hero img {
+    max-width: 200px;
+}
+
+/* PRODUCTOS */
+.productos {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding-bottom: 40px;
+}
+
+.card {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* BOTON */
+.btn {
+    background: #a67c52;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #8b5e3c;
+    transform: scale(1.1);
+}
+
+/* MENU PRO MEJORADO */
+.menu {
+    padding: 50px;
+}
+
+.menu h2 {
+    text-align: center;
+    color: #5a3e36;
+    margin-bottom: 30px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.menu-box {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+.menu-box:hover {
+    transform: translateY(-10px);
+}
+
+.menu-box img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+.menu-content {
+    padding: 15px;
+}
+
+.menu-content h4 {
+    text-align: center;
+    color: #5a3e36;
+}
+
+.menu-content p {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+/* INFO */
+.info {
+    background: #efe4d7;
+    padding: 50px;
+    text-align: center;
+}
+
+/* REDES */
+.redes {
+    text-align: center;
+    padding: 50px;
+}
+
+.redes img {
+    width: 70px;
+    margin: 15px;
+    transition: 0.3s;
+}
+
+.redes img:hover {
+    transform: scale(1.2);
+}
+
+/* CARRITO */
+.carrito-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #a67c52;
+    color: white;
+    font-size: 22px;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.carrito-panel {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 260px;
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    display: none;
+}
+
+.eliminar {
+    color: red;
+    cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #e6d3c3;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h2>Coffee House</h2>
+    <ul>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#info">Información</a></li>
+    </ul>
+</nav>
+
+<div class="hero">
+    <img src="img/logo_circular_sin_fondo.png">
+</div>
+
+<!-- PRODUCTOS -->
+<div id="productos" class="productos">
+
+    <div>
+        <div class="card"><img src="img/ERFO9802.PNG"></div>
+        <p>Matcha Latte</p>
+        <button class="btn" onclick="agregarProducto('Matcha Latte')">Agregar</button>
+    </div>
+
+    <div>
+        <div class="card"><img src="img/IMG_2357.JPG"></div>
+        <p>Crepa</p>
+        <button class="btn" onclick="agregarProducto('Crepa')">Agregar</button>
+    </div>
+
+    <div>
+        <div class="card"><img src="img/IMG_6397.JPG"></div>
+        <p>Frappé</p>
+        <button class="btn" onclick="agregarProducto('Frappé')">Agregar</button>
+    </div>
+
+</div>
+
+<!-- MENU PRO VISUAL -->
+<div class="menu">
+<h2>Menú</h2>
+
+<div class="menu-grid">
+
+<div class="menu-box">
+<img src="img/frappe.webp">
+<div class="menu-content">
+<h4>Frappés</h4>
+<p>Chai <button onclick="agregarProducto('Frappe Chai')">+</button></p>
+<p>Taro <button onclick="agregarProducto('Frappe Taro')">+</button></p>
+<p>Oreo <button onclick="agregarProducto('Frappe Oreo')">+</button></p>
+</div>
+</div>
+
+<div class="menu-box">
+<img src="img/smoothies.jpg">
+<div class="menu-content">
+<h4>Smoothies</h4>
+<p>Mango <button onclick="agregarProducto('Smoothie Mango')">+</button></p>
+<p>Fresa <button onclick="agregarProducto('Smoothie Fresa')">+</button></p>
+<p>Mora <button onclick="agregarProducto('Smoothie Mora')">+</button></p>
+</div>
+</div>
+
+<div class="menu-box">
+<img src="img/crepa.jfif">
+<div class="menu-content">
+<h4>Crepas dulces</h4>
+<p>Nutella <button onclick="agregarProducto('Crepa Nutella')">+</button></p>
+<p>Fresa <button onclick="agregarProducto('Crepa Fresa')">+</button></p>
+<p>Oreo <button onclick="agregarProducto('Crepa Oreo')">+</button></p>
+</div>
+</div>
+
+<div class="menu-box">
+<img src="img/crepa s.jfif">
+<div class="menu-content">
+<h4>Crepas saladas</h4>
+<p>Jamón <button onclick="agregarProducto('Crepa Jamón')">+</button></p>
+<p>Queso <button onclick="agregarProducto('Crepa Queso')">+</button></p>
+<p>Pollo <button onclick="agregarProducto('Crepa Pollo')">+</button></p>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- INFO -->
+<div class="info" id="info">
+    <h3>Información del local</h3>
+    <p>Dirección: lic. benito juarez</p>
+    <p>Ciudad: Cd. del maiz S.l.p.</p>
+    <p>Teléfono: 482 115 8241</p>
+</div>
+
+<!-- REDES -->
+<div class="redes">
+    <h3>Síguenos en redes sociales</h3>
+
+    <a href="https://www.facebook.com/profile.php?id=61587135085995" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
+    </a>
+
+    <a href="https://www.instagram.com/coffee_hause05/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+    </a>
+
+    <br><br>
+    <button class="btn" onclick="window.open('https://www.instagram.com/coffee_hause05/')">
+        Síguenos
+    </button>
+</div>
+
+<!-- CARRITO -->
+<div class="carrito-btn" onclick="toggleCarrito()">🛒 <span id="contador">0</span></div>
+
+<div class="carrito-panel" id="panelCarrito">
+    <ul id="listaCarrito"></ul>
+    <button onclick="enviarPedido()">Enviar pedido</button>
+</div>
+
+<footer>
+    <p>Coffee House © 2026</p>
+</footer>
+
+<script>
+let carrito = [];
+
+function toggleCarrito() {
+    let panel = document.getElementById("panelCarrito");
+    panel.style.display = panel.style.display === "block" ? "none" : "block";
+}
+
+function agregarProducto(nombre) {
+    carrito.push(nombre);
+    actualizarCarrito();
+}
+
+function eliminarProducto(index) {
+    carrito.splice(index, 1);
+    actualizarCarrito();
+}
+
+function actualizarCarrito() {
+    let lista = document.getElementById("listaCarrito");
+    let contador = document.getElementById("contador");
+
+    lista.innerHTML = "";
+
+    carrito.forEach((p, i) => {
+        lista.innerHTML += `<li>${p} <span class="eliminar" onclick="eliminarProducto(${i})">❌</span></li>`;
+    });
+
+    contador.textContent = carrito.length;
+}
+
+function enviarPedido() {
+    let mensaje = "Hola, quiero pedir:\n";
+
+    carrito.forEach((p, i) => {
+        mensaje += (i+1) + ". " + p + "\n";
+    });
+
+    let url = "https://wa.me/524821158241?text=" + encodeURIComponent(mensaje);
+    window.open(url);
+}
+</script>
+
+</body>
+</html>
